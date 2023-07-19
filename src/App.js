@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef } from 'react'
+import { EpubViewer, ReactEpubViewer } from 'react-epub-viewer'
 
-function App() {
+const App = () => {
+  const viewerRef = useRef(null)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ position: 'relative', height: '100%' }}>
+      <ReactEpubViewer
+        url={
+          'https://firebasestorage.googleapis.com/v0/b/safaricom-41234.appspot.com/o/new%20doc.epub?alt=media&token=c02d2fa6-436a-4c50-9415-811b067a1e65'
+        }
+        ref={viewerRef}
+        viewerOption='scroll'
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
